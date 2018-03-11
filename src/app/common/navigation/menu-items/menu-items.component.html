@@ -1,15 +1,15 @@
 <li>
-  <a href="sass.html">Cambiar</a>
+  <a href="sass.html">Cambiar Monas</a>
 </li>
-<li>
+<li *ngIf="auth.user | async">
   <a href="badges.html">Perfil</a>
 </li>
 <li>
-  <a href="collapsible.html">Login</a>
+  <a *ngIf="!(auth.user | async)" routerLink="/login">Login</a>
 </li>
 <li>
-  <a href="mobile.html">Terminos y condiciones</a>
+  <a routerLink="/terminos-condiciones">Terminos y condiciones</a>
 </li>
-<li>
-  <a href="mobile.html">Salir</a>
+<li *ngIf="auth.user | async">
+  <a (click)="auth.signOut()">Salir</a>
 </li>

@@ -1,0 +1,14 @@
+@import '_variables.scss';
+.title {
+  color: $color_secondary;
+}
+
+.text {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: $color_text;
+}
+
+.link {
+  color: $color_primary_lighten;
+}
