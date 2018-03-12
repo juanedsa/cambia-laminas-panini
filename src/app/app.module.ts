@@ -8,19 +8,23 @@ import { environment as ENV } from '../environments/environment';
 import { MenuItemsComponent } from './common/navigation/menu-items/menu-items.component';
 import { NavigationComponent } from './common/navigation/navigation.component';
 import { NgModule } from '@angular/core';
+import { ProfileModule } from './profile/profile.module';
 import { SharedModule } from './shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, MenuItemsComponent],
   imports: [
+    FormsModule,
     BrowserModule,
     SharedModule,
     AuthModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(ENV.firebase),
     AngularFirestoreModule,
+    ProfileModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

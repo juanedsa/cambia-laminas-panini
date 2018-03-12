@@ -1,0 +1,26 @@
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4 class="title">Agrega una nueva Mona</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="number" name="number" [(ngModel)]="number" type="number" class="validate">
+            <label for="number">Número</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="count" name="count" [(ngModel)]="count" type="number" class="validate">
+            <label for="count">¿Cuantas tienes?</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="closeModal()" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    <a (click)="addMona()" class="modal-action waves-effect waves-green btn-flat">Agregar</a>
+  </div>
+</div>

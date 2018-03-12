@@ -13,7 +13,6 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user = this.afAuth.authState.switchMap(user => {
-      console.log(user);
       if (user) {
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
@@ -70,7 +69,6 @@ export class AuthService {
   }
 
   signOut() {
-    console.log('saliendo');
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/otraRuta']);
       this.user = Observable.of(null);
