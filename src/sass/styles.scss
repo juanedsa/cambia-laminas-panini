@@ -1,6 +1,17 @@
 @import '_variables.scss';
 .title {
   color: $color_secondary;
+  font-weight: 300;
+  font-size: 3.2rem;
+}
+
+.sub-title {
+  color: $color_text;
+  font-weight: 300;
+  font-size: 1.8rem;
+  span {
+    color: $color_primary_lighten;
+  }
 }
 
 .text {
