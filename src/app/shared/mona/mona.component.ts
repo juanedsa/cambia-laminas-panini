@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-mona',
@@ -6,9 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mona.component.scss']
 })
 export class MonaComponent implements OnInit {
-  @Input() name: string;
+  @Input() product: Product;
 
   constructor() {}
 
   ngOnInit() {}
+
+  addMonaRepeat() {
+    if (this.product.count >= 1) {
+      this.product.count++;
+    }
+  }
+
+  removeMonaRepeat() {
+    if (this.product.count > 1) {
+      this.product.count--;
+    }
+  }
 }

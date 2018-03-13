@@ -22,12 +22,7 @@
       </div>
       <div id="monas" class="col s12">
         <div class="row">
-          <app-mona [name]="'Radamel Falcao'"></app-mona>
-          <app-mona [name]="'James'"></app-mona>
-          <app-mona [name]="'Messi'"></app-mona>
-          <app-mona [name]="'Ronaldo'"></app-mona>
-          <app-mona [name]="'Radamel Falcao'"></app-mona>
-          <app-mona [name]="'Radamel Falcao'"></app-mona>
+          <app-mona *ngFor="let mona of monas" [product]="mona"></app-mona>
         </div>
       </div>
       <div id="datos" class="col s12">Test 2</div>

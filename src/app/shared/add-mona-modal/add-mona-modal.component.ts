@@ -1,6 +1,8 @@
+import { AuthService } from './../../auth/auth.service';
+import { ProductService } from './../../common/product.service';
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../models/product';
 declare var $: any;
-declare var Materialize: any;
 
 @Component({
   selector: 'app-add-mona-modal',
@@ -11,24 +13,31 @@ export class AddMonaModalComponent implements OnInit {
   number: number;
   count: number;
 
-  constructor() {}
+  constructor(private productService: ProductService, private authService: AuthService) {}
 
   ngOnInit() {
     $('.modal').modal();
     this.number = null;
     this.count = null;
-    Materialize.updateTextFields();
   }
 
   closeModal(): void {
     this.number = null;
     this.count = null;
 
-    $('.modal').close();
+    $('#modal').modal('close');
   }
 
   addMona(): void {
-    this.number = null;
-    this.count = null;
+    const product = new Product();
+
+    product.number = this.number;
+    product.count = this.count;
+    product.userId = this.authService.currentUser.uid;
+
+    this.productService.save(product).then(() => {
+      this.number = null;
+      this.count = null;
+    });
   }
 }

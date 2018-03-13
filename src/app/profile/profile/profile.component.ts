@@ -1,6 +1,11 @@
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../common/product.service';
+import { Product } from '../../models/product';
 
 declare var $: any;
+
+type productsCollection = AngularFirestoreCollection<Product[]>;
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +13,16 @@ declare var $: any;
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  monas;
+
+  constructor(private productService: ProductService) {
+    this.productService
+      .products()
+      .valueChanges()
+      .subscribe(data => {
+        this.monas = data;
+      });
+  }
 
   ngOnInit() {
     $('ul.tabs').tabs();

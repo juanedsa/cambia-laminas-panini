@@ -21,6 +21,10 @@ export class AuthService {
     });
   }
 
+  get currentUser(): User {
+    return this.afAuth.auth.currentUser;
+  }
+
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider).then(credentials => {
       const user = credentials.user;
