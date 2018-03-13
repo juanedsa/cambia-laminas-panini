@@ -1,0 +1,23 @@
+<h1 class="title">Cambiar monas Repetidas</h1>
+
+<table class="striped highlight">
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Cuantas tiene</th>
+      <th>Usuario</th>
+      <th>Cambios</th>
+      <th>Reputación</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let product of monasRepeat">
+      <td>{{product.number}}</td>
+      <td>{{product.count}}</td>
+      <td>juanedsa</td>
+      <td>24</td>
+      <td>4.5</td>
+    </tr>
+  </tbody>
+</table>

@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { ProfileModule } from './profile/profile.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ChangeModule } from './change/change.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, MenuItemsComponent],
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(ENV.firebase),
     AngularFirestoreModule,
-    ProfileModule
+    ProfileModule,
+    ChangeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
