@@ -4,4 +4,5 @@ export class User {
   photoUrl?: string;
   displayName?: string;
   role?: string;
+  userName?: string;
 }

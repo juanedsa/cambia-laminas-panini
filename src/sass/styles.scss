@@ -1,44 +1,44 @@
 @import '_variables.scss';
 .title {
-  color: $color_secondary;
-  font-weight: 300;
-  font-size: 3.2rem;
+    color: $color_secondary;
+    font-weight: 300;
+    font-size: 3.2rem;
 }
 
 .sub-title {
-  color: $color_text;
-  font-weight: 300;
-  font-size: 1.8rem;
-  span {
-    color: $color_primary_lighten;
-  }
+    color: $color_text;
+    font-weight: 300;
+    font-size: 1.8rem;
+    span {
+        color: $color_primary_lighten;
+    }
 }
 
 .text {
-  font-size: 1.2em;
-  font-weight: 300;
-  color: $color_text;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: $color_text;
 }
 
 .link {
-  color: $color_primary_lighten;
+    color: $color_primary_lighten;
 }
 
 .tabs .tab a {
-  color: $color_secondary;
+    color: $color_secondary;
 }
 
 .tabs .tab a:hover,
 .tabs .tab a.active {
-  background-color: transparent;
-  color: $color_secondary_lighten;
+    background-color: transparent;
+    color: $color_secondary_lighten;
 }
 
 .tabs .tab.disabled a,
 .tabs .tab.disabled a:hover {
-  color: rgba(102, 147, 153, 0.7);
+    color: rgba(102, 147, 153, 0.7);
 }
 
 .tabs .indicator {
-  background-color: $color_secondary;
+    background-color: $color_secondary;
 }

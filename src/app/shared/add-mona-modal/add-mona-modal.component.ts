@@ -1,7 +1,11 @@
 import { AuthService } from './../../auth/auth.service';
-import { ProductService } from './../../common/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductService } from './../../common/product.service';
+import { User } from '../../models/user';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 declare var $: any;
 
 @Component({
@@ -12,6 +16,7 @@ declare var $: any;
 export class AddMonaModalComponent implements OnInit {
   number: number;
   count: number;
+  currentUser;
 
   constructor(private productService: ProductService, private authService: AuthService) {}
 
@@ -19,6 +24,13 @@ export class AddMonaModalComponent implements OnInit {
     $('.modal').modal();
     this.number = null;
     this.count = null;
+
+    this.authService.user.subscribe(user => {
+      console.log(user);
+      if (user) {
+        this.currentUser = user;
+      }
+    });
   }
 
   closeModal(): void {
@@ -33,7 +45,8 @@ export class AddMonaModalComponent implements OnInit {
 
     product.number = this.number;
     product.count = this.count;
-    product.userId = this.authService.currentUser.uid;
+    product.userId = this.currentUser.uid;
+    product.userName = this.currentUser.userName;
 
     this.productService.save(product).then(() => {
       this.number = null;

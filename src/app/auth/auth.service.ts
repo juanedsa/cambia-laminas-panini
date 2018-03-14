@@ -11,18 +11,17 @@ import 'rxjs/add/operator/switchMap';
 export class AuthService {
   user: Observable<User>;
 
+  userId: string;
+
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user = this.afAuth.authState.switchMap(user => {
       if (user) {
+        this.userId = user.uid;
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
         return Observable.of(null);
       }
     });
-  }
-
-  get currentUser(): User {
-    return this.afAuth.auth.currentUser;
   }
 
   private oAuthLogin(provider) {
@@ -35,6 +34,7 @@ export class AuthService {
           if (!data.length) {
             const newUser = {
               uid: user.uid,
+              userName: this.makeUserName(user),
               email: user.email,
               displayName: user.displayName,
               photoUrl: user.photoURL,
@@ -74,8 +74,19 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/otraRuta']);
+      this.router.navigate(['/']);
       this.user = Observable.of(null);
     });
+  }
+
+  private makeUserName(user): string {
+    if (user.email) {
+      return user.email.split('@')[0];
+    } else {
+      return user.displayName
+        .trim()
+        .replace(' ', '')
+        .toLowerCase();
+    }
   }
 }

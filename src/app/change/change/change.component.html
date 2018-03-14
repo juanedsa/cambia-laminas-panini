@@ -7,7 +7,7 @@
 <table class="striped highlight">
   <thead>
     <tr>
-      <th>Numero</th>
+      <th>Número</th>
       <th>Cuantas tiene</th>
       <th>Usuario</th>
       <th>Cambios</th>
@@ -19,9 +19,9 @@
     <tr *ngFor="let product of monasRepeat">
       <td>{{product.number}}</td>
       <td>{{product.count}}</td>
-      <td>juanedsa</td>
-      <td>24</td>
-      <td>4.5</td>
+      <td>{{product.userName}}</td>
+      <td>{{product.changes}}</td>
+      <td>{{product.score}}</td>
     </tr>
   </tbody>
 </table>

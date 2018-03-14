@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private productService: ProductService) {
     this.productService
-      .products()
+      .productsByUser()
       .valueChanges()
       .subscribe(data => {
         this.monas = data;
