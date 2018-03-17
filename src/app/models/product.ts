@@ -1,8 +1,8 @@
-import { User } from './user';
 export class Product {
   id?: string;
   name?: string;
   number?: number;
+  type?: string;
   team?: string;
   count?: number;
   userId?: string;

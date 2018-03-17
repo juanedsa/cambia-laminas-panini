@@ -9,7 +9,9 @@ declare var $: any;
 export class AddMonaBtnComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    $('.tap-target').tapTarget('open');
+  }
 
   openModal(): void {
     $('#modal1').modal('open');

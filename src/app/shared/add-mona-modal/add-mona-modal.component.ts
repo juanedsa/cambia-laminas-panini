@@ -2,10 +2,10 @@ import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from './../../common/product.service';
-import { User } from '../../models/user';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+
 declare var $: any;
 
 @Component({
@@ -26,7 +26,6 @@ export class AddMonaModalComponent implements OnInit {
     this.count = null;
 
     this.authService.user.subscribe(user => {
-      console.log(user);
       if (user) {
         this.currentUser = user;
       }

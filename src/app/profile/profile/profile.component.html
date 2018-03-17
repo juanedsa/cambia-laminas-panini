@@ -1,13 +1,4 @@
 <div class="row">
-
-  <!-- <div class="col s3 profile-info">
-    <img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24174409_1509430915810677_1415289669375885781_n.jpg?oh=965a46d00f5531065c2879e56eed7169&oe=5B4580DC"
-      alt="" class="circle responsive-img">
-    <p class="text">Hola, Juan</p>
-    <p class="text">juanedsa@gmail.com</p>
-    <p class="text">300 3659821</p>
-  </div> -->
-
   <div class="col s12 panel-monas">
     <div class="row">
       <div class="col s12">
@@ -25,8 +16,57 @@
           <app-mona *ngFor="let mona of monas" [product]="mona"></app-mona>
         </div>
       </div>
-      <div id="datos" class="col s12">Test 2</div>
+      <div id="datos" class="col s12">
+        <div class="row profile-info">
+          <img [src]="user?.photoUrl" alt="" class="circle responsive-img">
+          <p class="text">{{user?.displayName}}</p>
+          <p class="text">{{user?.userName}}</p>
+          <p class="text">{{user?.email}}</p>
+          <p class="text">{{user?.phone}}</p>
+          <button (click)="openModal()" class="btn waves-effect waves-light" type="submit" name="action">Editar
+            <i class="material-icons right">edit</i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
+<!-- Modal Structure -->
+<div id="modal-edit-profile" class="modal">
+  <div class="modal-content">
+    <h4 class="title">Edita tu perfil</h4>
+    <div class="row">
+      <form *ngIf="user" class="col s12">
+        <div class="row">
+          <div class="input-field col s10 offset-s2">
+            <input id="displayName" name="displayName" [(ngModel)]="user.displayName" type="text" class="validate">
+            <label for="displayName">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s2">
+            <input id="userName" name="userName" [(ngModel)]="user.userName" type="text" class="validate">
+            <label for="userName">Nombre de Usuario</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s2">
+            <input id="email" name="email" [(ngModel)]="user.email" type="email" class="validate">
+            <label for="email">e-mail</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s2">
+            <input id="phone" name="phone" [(ngModel)]="user.phone" type="number" class="validate">
+            <label for="phone">Celular</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="closeModal()" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    <a (click)="edit()" class="modal-action waves-effect waves-green btn-flat">Editar</a>
+  </div>
 </div>

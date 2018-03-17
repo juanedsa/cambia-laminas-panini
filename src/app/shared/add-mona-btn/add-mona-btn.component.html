@@ -1,5 +1,13 @@
 <div class="fixed-action-btn">
-  <a (click)="openModal()" class="btn-floating btn-large waves-effect waves-light orange">
+  <a id="menu" (click)="openModal()" class="btn-floating btn-large waves-effect waves-light orange">
     <i class="large material-icons">add</i>
   </a>
+</div>
+
+<!-- Tap Target Structure -->
+<div class="tap-target" data-activates="menu">
+  <div class="tap-target-content">
+    <h5>Hola!</h5>
+    <p>Haz clic aquí para agregar las monas que quieres cambiar.</p>
+  </div>
 </div>

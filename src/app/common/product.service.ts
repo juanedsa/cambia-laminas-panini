@@ -22,8 +22,7 @@ export class ProductService {
       .set(Object.assign({}, product));
   }
 
-  productsByUser(): productsCollection {
-    const userId = this.authService.userId;
+  productsByUser(userId: string): productsCollection {
     return this.afs.collection<Product[]>('products', ref => ref.where('userId', '==', userId));
   }
 }

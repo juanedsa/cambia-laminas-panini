@@ -1,0 +1,8 @@
+@import '_variables.scss';
+
+.tap-target {
+  background-color: $color_blue;
+  .tap-target-content {
+    color: $color_white;
+  }
+}

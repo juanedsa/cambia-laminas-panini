@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { MonaComponent } from './mona/mona.component';
 import { NgModule } from '@angular/core';
 import { ProductService } from '../common/product.service';
+import { UserService } from '../common/user.service';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: [MonaComponent, AddMonaBtnComponent, AddMonaModalComponent, FooterComponent],
   exports: [MonaComponent, AddMonaBtnComponent, AddMonaModalComponent, FooterComponent],
-  providers: [ProductService]
+  providers: [ProductService, UserService]
 })
 export class SharedModule {}

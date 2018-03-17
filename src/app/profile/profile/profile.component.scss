@@ -1,14 +1,16 @@
 @import '_mixins.scss';
 @import '_variables.scss';
+
+.panel-monas {
+  padding: 4em 2em;
+}
 .profile-info {
-  border-right: 1px solid $color_grey;
   @include flex-column-center();
   padding-top: 4em;
   img {
     max-width: 100px;
   }
-}
-
-.panel-monas {
-  padding: 4em 2em;
+  p {
+    margin: .2em 0;
+  }
 }
