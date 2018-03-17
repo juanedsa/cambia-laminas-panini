@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let product of monasRepeat">
+    <tr *ngFor="let product of monasRepeat" [routerLink]="['/perfil', product.userName]">
       <td>{{product.number}}</td>
       <td>{{product.count}}</td>
       <td>{{product.userName}}</td>

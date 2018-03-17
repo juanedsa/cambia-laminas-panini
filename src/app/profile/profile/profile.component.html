@@ -17,7 +17,7 @@
         </div>
       </div>
       <div id="datos" class="col s12">
-        <div class="row profile-info">
+        <div *ngIf="user" class="row profile-info">
           <img [src]="user?.photoUrl" alt="" class="circle responsive-img">
           <p class="text">{{user?.displayName}}</p>
           <p class="text">{{user?.userName}}</p>

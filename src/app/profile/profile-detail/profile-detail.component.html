@@ -1,0 +1,8 @@
+<div *ngIf="user" class="row profile-info">
+  <img [src]="user?.photoUrl" alt="" class="circle responsive-img">
+  <p class="text">{{user?.displayName}}</p>
+  <p class="text">{{user?.userName}}</p>
+  <p *ngIf="(auth.user | async)" class="text">{{user?.email}}</p>
+  <p *ngIf="(auth.user | async)" class="text">{{user?.phone}}</p>
+  <p *ngIf="!(auth.user | async)" class="text--blue">Para ver los datos de contacto de este usuario debes iniciar tu sesión.</p>
+</div>

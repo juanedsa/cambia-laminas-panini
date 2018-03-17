@@ -19,4 +19,8 @@ export class UserService {
       .doc(user.uid)
       .set(Object.assign({}, user));
   }
+
+  userByUserName(userName: string): usersCollection {
+    return this.afs.collection<User[]>('users', ref => ref.where('userName', '==', userName));
+  }
 }
