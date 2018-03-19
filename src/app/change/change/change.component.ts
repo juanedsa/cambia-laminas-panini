@@ -10,7 +10,9 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ChangeComponent implements OnDestroy {
   public monasRepeat;
+  public filteredMonasRepeat;
   public registeredUsers;
+  public filter;
 
   private productSubs: Subscription;
   private userSubs: Subscription;
@@ -19,7 +21,10 @@ export class ChangeComponent implements OnDestroy {
     this.productSubs = this.productService
       .products()
       .valueChanges()
-      .subscribe(data => (this.monasRepeat = data));
+      .subscribe(data => {
+        this.monasRepeat = data;
+        this.assignCopy();
+      });
 
     this.userSubs = this.userService
       .users()
@@ -30,5 +35,22 @@ export class ChangeComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.productSubs.unsubscribe();
     this.userSubs.unsubscribe();
+  }
+
+  assignCopy() {
+    this.filteredMonasRepeat = Object.assign([], this.monasRepeat);
+  }
+
+  filterItem(value) {
+    if (!value) {
+      this.assignCopy();
+    }
+    this.filteredMonasRepeat = Object.assign([], this.monasRepeat).filter(
+      item =>
+        item.number
+          .toString()
+          .toLowerCase()
+          .indexOf(value.toLowerCase()) > -1
+    );
   }
 }

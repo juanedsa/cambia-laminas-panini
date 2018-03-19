@@ -43,7 +43,7 @@ export class AddMonaModalComponent implements OnInit {
     const product = new Product();
 
     product.number = this.number;
-    product.count = this.count;
+    product.count = this.count || 1;
     product.userId = this.currentUser.uid;
     product.userName = this.currentUser.userName;
 

@@ -1,23 +1,31 @@
 <h1 class="title">Cambiar monas repetidas del mundial</h1>
-<h2 class="sub-title">Rapido y seguro con mas de
-  <span>{{registeredUsers}}</span> usuarios registrados</h2>
-<hr/>
+<h2 class="sub-title">Rapido y seguro con mas de <span>{{registeredUsers}}</span> usuarios registrados</h2>
+
+<form class="col s12 search-form">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">search</i>
+      <input id="icon_prefix" #myInput type="text" class="validate" (input)="filterItem(myInput.value)">
+      <label for="icon_prefix">Buscar por número</label>
+    </div>
+  </div>
+</form>
 
 <h5 class="title-table">Usuarios con monas repetidas</h5>
 <table class="striped highlight">
   <thead>
-    <tr>
-      <th>Número</th>
-      <th>Cuantas tiene</th>
-      <th>Usuario</th>
-    </tr>
+  <tr>
+    <th>Número</th>
+    <th>Cuantas tiene</th>
+    <th>Usuario</th>
+  </tr>
   </thead>
 
   <tbody>
-    <tr *ngFor="let product of monasRepeat" [routerLink]="['/perfil', product.userName]">
-      <td>{{product.number}}</td>
-      <td>{{product.count}}</td>
-      <td>{{product.userName}}</td>
-    </tr>
+  <tr *ngFor="let product of filteredMonasRepeat" [routerLink]="['/perfil', product.userName]">
+    <td>{{product.number}}</td>
+    <td>{{product.count}}</td>
+    <td>{{product.userName}}</td>
+  </tr>
   </tbody>
 </table>
