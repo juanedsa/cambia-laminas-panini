@@ -2,6 +2,7 @@ export class Product {
   id?: string;
   name?: string;
   number?: number;
+  img?: string;
   type?: string;
   team?: string;
   count?: number;

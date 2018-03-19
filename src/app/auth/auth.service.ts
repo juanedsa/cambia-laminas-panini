@@ -64,14 +64,6 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  emailAndPassword(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email.value, password.value);
-  }
-
-  signUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-  }
-
   signOut() {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);

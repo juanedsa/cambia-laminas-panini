@@ -45,3 +45,9 @@
 .tabs .indicator {
     background-color: $color_secondary;
 }
+
+@media only screen and (max-width: $width_mobile) {
+  .title {
+    font-size: 2.2rem;
+  }
+}

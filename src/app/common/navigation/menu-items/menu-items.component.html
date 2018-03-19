@@ -1,12 +1,12 @@
 <li>
-  <a routerLink="/cambiar-monas">Cambiar Monas</a>
+  <a (click)="goToChangeMonas()">Cambiar Monas</a>
 </li>
 <li *ngIf="auth.user | async">
-  <a routerLink="/perfil">Perfil</a>
+  <a (click)="goToProfile()">Perfil</a>
 </li>
 <li>
-  <a *ngIf="!(auth.user | async)" routerLink="/login">Login</a>
+  <a *ngIf="!(auth.user | async)" (click)="goToLogin()">Login</a>
 </li>
 <li *ngIf="auth.user | async">
-  <a (click)="auth.signOut()">Salir</a>
+  <a (click)="logOut()">Salir</a>
 </li>

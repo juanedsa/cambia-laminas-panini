@@ -24,4 +24,8 @@ export class MonaComponent implements OnInit {
       this.product.count--;
     }
   }
+
+  getImg(): string {
+    return this.product.img ? this.product.img : 'assets/mona-default.png';
+  }
 }

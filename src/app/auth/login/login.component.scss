@@ -7,9 +7,18 @@
   flex-wrap: nowrap;
   align-items: center;
   text-align: center;
-  .btn,
-  .coinhive-captcha {
+  .btn {
     margin-top: 2em;
-    width: 60%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: $width_mobile) {
+  .login {
+    .btn {
+      margin-top: 2em;
+      width: 100%;
+      padding: 0em;
+    }
   }
 }
